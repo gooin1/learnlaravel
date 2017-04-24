@@ -1,0 +1,191 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "357950f5c9912373e1b8b7db38557061",
+    "packages": [
+        {
+            "name": "arcanedev/qr-code",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arcanedev-maroc/QrCode.git",
+                "reference": "c0e3429df86bf9e4668c1e4f083c742ae677f6fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/arcanedev-maroc/QrCode/c0e3429df86bf9e4668c1e4f083c742ae677f6fe.zip",
+                "reference": "c0e3429df86bf9e4668c1e4f083c742ae677f6fe",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arcanedev\\QrCode\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ARCANEDEV",
+                    "email": "arcanedev.maroc@gmail.com",
+                    "homepage": "http://www.arcanedev.net/"
+                }
+            ],
+            "description": "QR Code generator",
+            "homepage": "https://github.com/arcanedev-maroc/QrCode",
+            "keywords": [
+                "code",
+                "generator",
+                "qr",
+                "qr-code",
+                "qrcode"
+            ],
+            "time": "2014-10-25 20:57:30"
+        },
+        {
+            "name": "gregwar/captcha",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gregwar/Captcha.git",
+                "reference": "2f704c8bc3f1bb5f58994af2729e77ac4e3172e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/Gregwar/Captcha/2f704c8bc3f1bb5f58994af2729e77ac4e3172e6.zip",
+                "reference": "2f704c8bc3f1bb5f58994af2729e77ac4e3172e6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "captcha",
+            "autoload": {
+                "psr-4": {
+                    "Gregwar\\Captcha\\": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Passault",
+                    "email": "g.passault@gmail.com",
+                    "homepage": "http://www.gregwar.com/"
+                },
+                {
+                    "name": "Jeremy Livingston",
+                    "email": "jeremy.j.livingston@gmail.com"
+                }
+            ],
+            "description": "Captcha generator",
+            "homepage": "https://github.com/Gregwar/Captcha",
+            "keywords": [
+                "bot",
+                "captcha",
+                "spam"
+            ],
+            "time": "2017-04-19T08:10:55+00:00"
+        },
+        {
+            "name": "xiaohigh/curl",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xiaohigh/curl.git",
+                "reference": "c4abb45465017e436ed053a0c5e574602aa12825"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/xiaohigh/curl/c4abb45465017e436ed053a0c5e574602aa12825.zip",
+                "reference": "c4abb45465017e436ed053a0c5e574602aa12825",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xiaohigh\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "xiaohigh",
+                    "email": "xiaohigh@163.com"
+                }
+            ],
+            "description": "封装好的一个curl类,用来在php脚本中,发送get请求和post请求",
+            "time": "2017-03-09 02:11:22"
+        },
+        {
+            "name": "xiaohigh/pscws4",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xiaohigh/pscws4.git",
+                "reference": "ee276603a59b792cc26e752fbdc0f06c8a131987"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/xiaohigh/pscws4/ee276603a59b792cc26e752fbdc0f06c8a131987.zip",
+                "reference": "ee276603a59b792cc26e752fbdc0f06c8a131987",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "xiaohigh\\Pscws4\\": "./src"
+                },
+                "files": [
+                    "./src/pscws4.class.php",
+                    "./src/xdb_r.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "xiaohigh",
+                    "email": "xiaohigh@163.com"
+                }
+            ],
+            "description": "借助开源免费分词系统pscws4,实现一个简单的php分词类文件,方便进行中文分词",
+            "time": "2016-07-17T13:42:28+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "arcanedev/qr-code": 20,
+        "xiaohigh/curl": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

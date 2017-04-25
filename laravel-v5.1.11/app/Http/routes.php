@@ -65,12 +65,33 @@ Route::group([],function () {
 //        echo "alias";
         }
     ]);
-
     // 404
     Route::get('/404', function () {
        abort(404);
     });
 });
+
+
+    Route::get('/setting', [
+        'middleware' => 'login',
+        function() {
+            echo "settings page";
+        }
+    ]);
+    // 登录
+    Route::get('/login', function () {
+        echo "login page";
+    });
+
+    // 写入 session uid
+    Route::get('session', function (){
+       session(['uid' => 10]);
+    });
+
+    // 网站后台
+    Route::get('admin', function (){
+        echo '后台页面';
+    })->middleware('login');
 
 
 

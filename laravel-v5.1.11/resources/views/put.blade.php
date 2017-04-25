@@ -13,8 +13,8 @@
     <br>
     密码: <input type="password" name="password">
     <br>
+    {{--方法欺骗, 模拟 put 请求--}}
     <input type="hidden" name="_method" value="PUT">
-    {{--<button>提交</button>--}}
     <input type="submit" name="submit">
     {{--隐藏域，防止csrf攻击--}}
     {{ csrf_field() }}

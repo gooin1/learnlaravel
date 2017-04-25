@@ -41,12 +41,12 @@ Route::put('/update', function () {
 });
 
 // 带参数的路由规则
-Route::get('/article/{id}', function ($id) {
+Route::get('/text/{id}', function ($id) {
     echo '这是文章的详情, id为' . $id ;
 });
 
 //限制参数的类型
-Route::get('/goods/{id}', function ($id) {
+Route::get('/sth/{id}', function ($id) {
     echo '详情页,  id 为' .$id;
 })->where('id', '[0-9]+');//加正则表达式限制
 
@@ -54,7 +54,7 @@ Route::get('/goods/{id}', function ($id) {
 Route::group([],function () {
 
     // 多个参数
-    Route::get('/{name}/{id}', function ($name, $id) {
+    Route::get('/user/{name}/{id}', function ($name, $id) {
         echo "名字为: " .$name .", id 为: " .$id;
     })->where(['name' => '[a-z]+'],['id' => '[0-9]+']);
 
@@ -93,6 +93,27 @@ Route::group([],function () {
         echo '后台页面';
     })->middleware('login');
 
+
+    Route::get('/controller','UserController@show');
+
+    // 用户的修改
+    Route::get('/user/{id}/edit','UserController@edit');
+
+    Route::get('/admin/user/delete/{id}', [
+        'as' => 'udelete',
+        'uses' => 'UserController@delete']
+    );
+    // 用户的升级
+    Route::get('/admin/user/update', [
+        'middleware' => 'login',
+        'uses' => 'UserController@update'
+    ]);
+
+    // 隐式控制器
+    Route::controller('goods', 'GoodsController');
+
+    // RESTful 控制器
+    Route::resource('article', 'ArticleController');
 
 
 

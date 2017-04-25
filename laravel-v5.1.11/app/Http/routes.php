@@ -16,15 +16,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function (){
-    echo 'fffff';
-});
-
-Route::get('/admin', function () {
-    echo 'admin page';
-});
-
+// get 形式路由
 Route::get('/admin/user', function () {
     echo 'admin page/user';
 });
+
+
+// 显示出 html 表单页路由
+Route::get('/form', function() {
+    return view('form');
+});
+
+// post 形式路由
+Route::post('/insert', function () {
+    echo "insert";
+});
+
+
+// put 请求
+Route::get('/put', function() {
+   return view('put');
+});
+Route::put('/update', function () {
+    echo "put";
+});
+
+
 

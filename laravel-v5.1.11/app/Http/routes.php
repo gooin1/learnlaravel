@@ -11,6 +11,20 @@
 |
 */
 
+// 指定路由
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', function (){
+    echo 'fffff';
+});
+
+Route::get('/admin', function () {
+    echo 'admin page';
+});
+
+Route::get('/admin/user', function () {
+    echo 'admin page/user';
+});
+

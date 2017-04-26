@@ -134,4 +134,7 @@ Route::get('/flash', 'UserController@flash');
 Route::post('/flash', 'UserController@doFlash');
 Route::get('/old', 'UserController@old');
 
+// 响应路由
+Route::get('/response', 'UserController@response');
+
 

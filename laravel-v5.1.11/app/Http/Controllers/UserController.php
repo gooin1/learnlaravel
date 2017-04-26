@@ -135,4 +135,31 @@ class UserController extends Controller
     {
         var_dump(old('name'));
     }
+
+    public function response()
+    {
+        //返回字符串
+//        return 'Hello';
+        //返回并设置 cookie
+//        return response('')->withCookie('name', 'gooin', 10);
+        // 返回json
+//        return response()->json(['name'=>'王大锤','age'=>25, 'location' => 'lanzhou']);
+        // 下载文件
+//        return response()->download('./images/404.gif');
+        // 重定向
+//        return redirect('http://gooin.xyz');
+//        return redirect('/');
+//         返回视图
+//        return view('response');
+        // 设置响应头
+//        return response('')->header('name', 'gooin');
+        // 设置返回内容并跳转
+        return '支付成功
+         <script>
+            setTimeout(function() {
+              location.href="/form";
+            },3000)
+        </script>';
+    }
+
 }

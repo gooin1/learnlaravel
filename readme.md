@@ -159,6 +159,42 @@ C:\wamp64\www\laravel\learnlaravel\laravel-v5.1.11\app\Http\Controllers\UserCont
 `$name = $request->input('name');`
 ...
 更多用法在 [laravel文档](http://d.laravel-china.org/docs/5.1/requests)
+## 上传文件
+```php
+public function file(Request $request) {
+    if($request->file('name'){
+        // 将上传的文件保存到 /upload 目录, 并赋予名字
+        $request->file('name')->move('./upload','filename')
+    }
+}
+```
+
+## 设置 Cookie
+```php
+public function cookie(){
+        //写入 cookie
+        cookie('name', 'gooin', 20); //方法1.时间单位为分钟
+        //方法2
+//     return response('')->withCookie(cookie('name', 'diuleiloumou', 20));
+        // 读取Cookie
+        $res = $request->cookie('name');
+        var_dump($res);
+
+}
+```
+## 使用闪存
+使用全局辅助函数 old 即可
+```html
+<form action="/flash" method="post">
+    <input type="text" name="name" value="{{old('name')}}"><br>
+    <input type="text" name="pwd" value="{{old('pwd')}}"><br>
+    <input type="text" name="age" value="{{old('age')}}"><br>
+    {{ csrf_field() }}
+    <button>submit</button>
+</form>
+```
+
+
 
 
 

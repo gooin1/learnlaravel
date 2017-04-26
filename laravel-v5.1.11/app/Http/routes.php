@@ -124,6 +124,14 @@ Route::group([],function () {
 
     Route::post('/user-form', 'UserController@insert');
 
+    //文件
+    Route::get('/file', 'UserController@file');
+    Route::post('/upload', 'UserController@upload');
 
+    // Cookie
+Route::get('/cookie', 'UserController@cookie');
+Route::get('/flash', 'UserController@flash');
+Route::post('/flash', 'UserController@doFlash');
+Route::get('/old', 'UserController@old');
 
 

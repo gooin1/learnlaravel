@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -88,5 +87,52 @@ class UserController extends Controller
         $password = $request->input('password');
         echo $username .' , '. $password;
 
+    }
+
+    // 显示 form 表单
+    public function file(){
+        return view('file');
+    }
+
+    public function upload(Request $request)
+    {
+        // 检测文件是否有上传
+//        $res = $request->file('profile');
+        if ($request->hasFile('profile')) {
+            $request->file('profile')->move('./upload', 'helli.jpg');
+
+        }
+//        var_dump($res);
+    }
+
+    public function cookie(Request $request)
+    {
+        // 写入 cookie
+//        cookie('name', 'gooin', 20);//时间单位为分钟
+//        return response('')->withCookie(cookie('name', 'diuleiloumou', 20));
+
+        // 读取Cookie
+        $res = $request->cookie('name');
+        var_dump($res);
+    }
+
+    public function flash()
+    {
+        return view('flash');
+    }
+
+    public function doFlash(Request $request)
+    {
+//        $all = $request->all();
+//        var_dump($all);
+        // 将请求的参数都闪存起来
+        $request->flash();
+        // 跳转到原来的页面重写参数
+        return back();
+    }
+
+    public function old()
+    {
+        var_dump(old('name'));
     }
 }

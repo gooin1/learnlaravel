@@ -115,6 +115,10 @@ Route::group([],function () {
     // RESTful 控制器
     Route::resource('article', 'ArticleController');
 
+    // 请求
+    Route::get('/request', 'UserController@request');
+
+
 
 
 

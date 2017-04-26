@@ -91,14 +91,72 @@ Method [show] does not exist.
 `Route::resource('article', 'ArticleController');`
 
 
-动词	        路径	                        行为（方法）	路由名称
-GET	        /photos	                    index	    photos.index
-GET	         /photos/create	            create	    photos.create
-POST	    /photos	                    store	    photos.store
-GET	         /photos/{photo}	        show	    photos.show
-GET	         /photos/{photo}/edit	    edit	    photos.edit
-PUT/PATCH	/photos/{photo}         	update	    photos.update
-DELETE	    /photos/{photo}	            destroy 	photos.destroy
+| 动词	   |     路径	         |               行为（方法）|	路由名称 |
+| ----      |      ----- |                 ------ |   -------- | 
+| GET	    |    /photos	          |          index	   | photos.index |
+| GET	    |     /photos/create	   |         create	  |  photos.create |
+| POST	|    /photos	            |        store	   | photos.store |
+| GET	     |    /photos/{photo}	    |    show	   | photos.show |
+| GET	     |    /photos/{photo}/edit	|   edit	  |  photos.edit |
+| PUT/PATCH |	/photos/{photo}         |	update	  |  photos.update |
+| DELETE	  |  /photos/{photo}	     |       destroy 	| photos.destroy |
+
+# 7请求
+## 基本信息获取
+```php
+public function request(Request $request){
+        //echo "request";
+        // 获取请求的方法
+        $method = $request->method();
+        echo $method;
+        echo "<br>";
+        // 获取请求的完整 url
+        $url = $request->url();
+        echo $url;
+        echo "<br>";
+        // 检测请求方式
+        $res = $request->isMethod('get');
+        var_dump($res);
+        echo "<br>";
+        // 检测请求的路径
+        $path = $request->path();
+        var_dump($path);
+        echo "<br>";
+        // 检测请求的ip
+        $ip = $request->ip();
+        echo $ip;
+        // 检测请求的端口
+        $port = $request->getPort();
+        var_dump($port);
+    }
+```
+显示为
+```html
+GET
+http://laravel.me/request
+C:\wamp64\www\laravel\learnlaravel\laravel-v5.1.11\app\Http\Controllers\UserController.php:43:boolean true
+
+C:\wamp64\www\laravel\learnlaravel\laravel-v5.1.11\app\Http\Controllers\UserController.php:47:string 'request' (length=7)
+
+127.0.0.1
+C:\wamp64\www\laravel\learnlaravel\laravel-v5.1.11\app\Http\Controllers\UserController.php:54:int 80
+```
+- 检测请求的方法
+`$method = $request->method();`
+- 检测请求方式
+`$res = $request->isMethod('get);`
+- 检测请求的路径
+`$path = $request->path();`
+- 检测请求的 url
+`$url = $request->url();`
+- 检测请求的 ip
+`$ip = $request->ip();`
+- 检测请求的端口
+`$port = $request->getPort()`
+
+## 提取请求参数
+- 获取特定输入值
+`$name = $request->input('name');`
 
 
 

@@ -27,4 +27,34 @@ class UserController extends Controller
     public function update(){
         echo 'update';
     }
+
+    public function request(Request $request){
+        //echo "request";
+        // 获取请求的方法
+//        $method = $request->method();
+//        echo $method;
+//        echo "<br>";
+//        // 获取请求的完整 url
+//        $url = $request->url();
+//        echo $url;
+//        echo "<br>";
+//        // 检测请求方式
+//        $res = $request->isMethod('get');
+//        var_dump($res);
+//        echo "<br>";
+//        // 检测请求的路径
+//        $path = $request->path();
+//        var_dump($path);
+//        echo "<br>";
+//        // 检测请求的ip
+//        $ip = $request->ip();
+//        echo $ip;
+//        // 检测请求的端口
+//        $port = $request->getPort();
+//        var_dump($port);
+
+        // 参数获取
+        $username = $request->input('username');
+        echo $username;
+    }
 }

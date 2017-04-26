@@ -9,25 +9,32 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     //
-    public function show(){
+    public function show()
+    {
         echo 'show function';
     }
+
     // 用户编辑
-    public function edit($id) {
-        echo 'edit 函数, 用户的 id 为'.$id ;
-    }
-    // 用户删除操作
-    public function delete($id) {
-//        echo "delete";
-        // 通过别名创建url
-        echo route('udelete',['id' => 100]);
+    public function edit($id)
+    {
+        echo 'edit 函数, 用户的 id 为' . $id;
     }
 
-    public function update(){
+    // 用户删除操作
+    public function delete($id)
+    {
+//        echo "delete";
+        // 通过别名创建url
+        echo route('udelete', ['id' => 100]);
+    }
+
+    public function update()
+    {
         echo 'update';
     }
 
-    public function request(Request $request){
+    public function request(Request $request)
+    {
         //echo "request";
         // 获取请求的方法
 //        $method = $request->method();
@@ -72,25 +79,28 @@ class UserController extends Controller
 //        var_dump($except);
 
 //            获取请求头信息
-            $res = $request->header('Cookie');
-            var_dump($res);
+        $res = $request->header('Cookie');
+        var_dump($res);
 
     }
 
-    public function form(){
+    public function form()
+    {
         return view('user-form');
     }
 
-    public function insert(Request $request){
+    public function insert(Request $request)
+    {
         // 获取表单中的用户名, 密码
         $username = $request->input('username');
         $password = $request->input('password');
-        echo $username .' , '. $password;
+        echo $username . ' , ' . $password;
 
     }
 
     // 显示 form 表单
-    public function file(){
+    public function file()
+    {
         return view('file');
     }
 
@@ -170,8 +180,24 @@ class UserController extends Controller
         // 划分目录
 //        return view('user.index');
         // 解析模板并分配数据
-        $arr = ['name'=>'gooin','age'=>5,'city'=>'lanzhou'];
+        $arr = ['name' => 'gooin', 'age' => 5, 'city' => 'lanzhou'];
         return view('user.user', $arr);
+    }
+
+    // blade 的使用
+    public function blade()
+    {
+        // 路径分割使用 .
+        return view('admin.index',
+            [
+                'title' => 'admin.index',
+                'username1' => 'gooin',
+                'page' => '<form action="/goods/insert" method="post">
+                             {{ csrf_field() }}
+                             <input type="text" name="username">
+                                 <button>点击添加</button>
+                            </form>'
+            ]);
     }
 
 }

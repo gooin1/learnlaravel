@@ -138,7 +138,8 @@ Route::get('/old', 'UserController@old');
 Route::get('/response', 'UserController@response');
 // 视图路由
 Route::get('/view', 'UserController@view');
-
+// blade路由
+Route::get('/blade', 'UserController@blade');
 
 
 

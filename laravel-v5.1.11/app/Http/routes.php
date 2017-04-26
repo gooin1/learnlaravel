@@ -119,6 +119,10 @@ Route::group([],function () {
     Route::get('/request', 'UserController@request');
 
 
+    //显示一个form表单
+    Route::get('/user-form', 'UserController@form');
+
+    Route::post('/user-form', 'UserController@insert');
 
 
 

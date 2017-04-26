@@ -157,6 +157,8 @@ C:\wamp64\www\laravel\learnlaravel\laravel-v5.1.11\app\Http\Controllers\UserCont
 ## 提取请求参数
 - 获取特定输入值
 `$name = $request->input('name');`
+...
+更多用法在 [laravel文档](http://d.laravel-china.org/docs/5.1/requests)
 
 
 

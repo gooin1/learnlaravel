@@ -54,7 +54,39 @@ class UserController extends Controller
 //        var_dump($port);
 
         // 参数获取
+//        $username = $request->input('username');
+//        echo $username;
+        // 设置默认值
+//        $name = $request->input('name','gooin');
+//        echo $name;
+//        确认是否有输入值
+//        $res = $request->has('username');
+//        var_dump($res);
+//        获取所有参数
+//        $res = $request->all();
+//        var_dump($res);
+//        获取部分参数
+//        $only = $request->only(['name', 'pwd']);
+//        var_dump($only);
+//            剔除不需要的参数
+//        $except = $request->except(['name']);
+//        var_dump($except);
+
+//            获取请求头信息
+            $res = $request->header('Cookie');
+            var_dump($res);
+
+    }
+
+    public function form(){
+        return view('user-form');
+    }
+
+    public function insert(Request $request){
+        // 获取表单中的用户名, 密码
         $username = $request->input('username');
-        echo $username;
+        $password = $request->input('password');
+        echo $username .' , '. $password;
+
     }
 }

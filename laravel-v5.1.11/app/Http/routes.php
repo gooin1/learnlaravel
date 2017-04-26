@@ -136,5 +136,9 @@ Route::get('/old', 'UserController@old');
 
 // 响应路由
 Route::get('/response', 'UserController@response');
+// 视图路由
+Route::get('/view', 'UserController@view');
+
+
 
 

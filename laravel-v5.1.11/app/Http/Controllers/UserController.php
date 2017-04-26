@@ -162,4 +162,16 @@ class UserController extends Controller
         </script>';
     }
 
+    // 视图
+    public function view()
+    {
+        // 解析模板
+//        return view('view');
+        // 划分目录
+//        return view('user.index');
+        // 解析模板并分配数据
+        $arr = ['name'=>'gooin','age'=>5,'city'=>'lanzhou'];
+        return view('user.user', $arr);
+    }
+
 }

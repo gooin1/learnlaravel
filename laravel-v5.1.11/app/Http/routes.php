@@ -146,6 +146,8 @@ Route::get('/cart', 'UserController@cart');
 // blade 模板继承
 Route::get('/layout', 'UserController@layout');
 Route::get('/extend', 'UserController@extend');
+// 流程控制
+Route::get('/liucheng', 'UserController@liucheng');
 
 
 

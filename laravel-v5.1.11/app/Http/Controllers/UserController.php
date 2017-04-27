@@ -218,10 +218,17 @@ class UserController extends Controller
     {
         return view('layout.index');
     }
-
     public function extend()
     {
         return view('layout.extend');
+    }
+    // blade 流程控制
+    public function liucheng()
+    {
+        return view('control.liucheng',
+            [
+               'total' => 64
+            ]);
     }
 
 }

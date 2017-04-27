@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -229,6 +229,49 @@ class UserController extends Controller
             [
                'total' => 64
             ]);
+    }
+    // 数据库操作
+    public function db()
+    {
+//        查询
+//        $res = DB::select('select * from users');
+//        $res = DB::select('select * from articles where title = ?',['woc']);
+
+//        插入
+//        $res = DB::insert('insert into articles (title, body, user_id, created_at)
+//                            values("我是标题","我是内容",1 , 1)');
+//        $res = DB::insert('insert into articles (title, body) values(?, ?)',
+//            ["我是新标题","我是新内容"]); //使用占位符
+        // 更新
+//        $res = DB::update('update articles set title = "我是id为10的新标题" where id = 10');
+//        $res = DB::update('update articles set title = "我是id为9的新标题" where id = ?',[9]);
+
+        // 删除
+//        $res = DB::delete('delete from articles where id = 14');
+//        $res = DB::delete('delete from articles where id = ?',[4]);
+
+        // 一般语句
+//         $res = DB::statement('create table sb (id int primary key auto_increment, name varchar(20))');
+//        $res = DB::statement('drop table sb');
+        //        var_dump($res);
+
+        // 事务操作
+        // 开启事务
+//        $res = DB::update('update articles set user_id = user_id + 999 WHERE id = 5  ');
+//        $res2 = DB::update('update articles set user_id = user_id - 1 WHERE id = 6');
+
+//        if ($res && $res2) {
+        // 事务提交
+//            DB::commit();
+//            echo "成功";
+//        } else {
+//            DB::rollBack();
+//            echo "失败";
+//        }
+
+
+
+
     }
 
 }

@@ -149,5 +149,8 @@ Route::get('/extend', 'UserController@extend');
 // 流程控制
 Route::get('/liucheng', 'UserController@liucheng');
 
+// 数据库操作
+Route::get('/db', 'UserController@db');
+
 
 

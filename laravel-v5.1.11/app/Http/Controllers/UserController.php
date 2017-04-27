@@ -269,6 +269,9 @@ class UserController extends Controller
 //            echo "失败";
 //        }
 
+// 操作多个数据库
+//        $res = DB::connection('mysql1')->select('select * from students');
+//        var_dump($res);
 
 
 

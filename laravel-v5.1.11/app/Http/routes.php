@@ -140,6 +140,9 @@ Route::get('/response', 'UserController@response');
 Route::get('/view', 'UserController@view');
 // blade路由
 Route::get('/blade', 'UserController@blade');
+// blade 使用 @include('')
+Route::get('/page', 'UserController@page');
+Route::get('/cart', 'UserController@cart');
 
 
 

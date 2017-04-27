@@ -200,4 +200,18 @@ class UserController extends Controller
             ]);
     }
 
+    public function page()
+    {
+        // 解析模板
+        return view('page.index',
+            [
+                'title' => 'Page'
+            ]);
+    }
+
+    public function cart()
+    {
+        return view('page.cart');
+    }
+
 }

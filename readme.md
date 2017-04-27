@@ -195,6 +195,40 @@ public function cookie(){
 ```
 
 # 8 响应
+在官网文档/代码中注释
+# 9 blade模板
+在官网文档/代码中注释
+# 10 数据库基本操作
+在官网文档/代码中注释
+# 11 数据库迁移
+## 生成迁移
+laravel 路径在在 cmd 中打开, 执行命令
+ `php artisan make:migration test`
+ 生成的迁移文件保存在 `database/migration` 目录中
+ ## 修改迁移结构
+ 打开刚才创建好的文件 `laravel-v5.1.11/database/migrations/2017_04_28_001755_test.php`
+ 里面会包含两个方法: `up`和`down`.
+ up 方法可为数据库增加新的数据表、字段、或索引，而 down 方法则可简单的反向运行 up 方法的操作。
+ ```php
+public function up()
+    {
+        // 创建一个 test 表
+        Schema::create('test', function (Blueprint $table) {
+            // 创建主键字段
+            $table->increments('id');
+            // 创建用户名字段
+            $table->string('username')->nullable()->default('abc')->comment('用户名');
+            // 创建密码字段
+            $table->string('password');
+        });
+    }
+```
+
+## 运行迁移
+在命令行执行 `php artisan migrate`
+![php-migrate.png](https://ooo.0o0.ooo/2017/04/28/59021d37e94da.png)
+运行成功后查看数据库
+![php-migrated.png](https://ooo.0o0.ooo/2017/04/28/59021d3ca2f80.png)
 
 
 

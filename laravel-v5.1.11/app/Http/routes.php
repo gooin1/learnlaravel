@@ -10,6 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//   SQL 语句记录
+//Event::listen('illuminate.query', function ($query) {
+//    var_dump($query);
+//});
 
 // 指定路由
 Route::get('/', function () {
@@ -151,6 +155,9 @@ Route::get('/liucheng', 'UserController@liucheng');
 
 // 数据库操作
 Route::get('/db', 'UserController@db');
+
+// 查询构造器
+Route::get('/builder', 'UserController@builder');
 
 
 

@@ -273,8 +273,82 @@ class UserController extends Controller
 //        $res = DB::connection('mysql1')->select('select * from students');
 //        var_dump($res);
 
+    }
+/*
+ * 查询构造器
+ */
+    public function builder()
+    {
+        // 插入操作 (单条)
+//        $res = DB::table('users')->insert([
+//            'name' => 'gooin1',
+//            'email' => 'goooinn@gmail.com'
+//        ]);
 
+        // 插入操作 (多条)
+//        $res = DB::table('users')->insert([
+//            ['name' => 'gooin2', 'email' => 'goooinn2@gmail.com'],
+//            ['name' => 'gooin3', 'email' => 'goooinn3@gmail.com']
+//        ]);
 
+        // 插入并获取id
+//        $res = DB::table('users')->insertGetId([
+//            'name' => 'gooin4',
+//            'email' => 'asdfa@asda.com'
+//        ]);
+//        返回的 id 保存在 $res
+
+//        更新操作
+//        $res = DB::table('users')->where('id',2)->update(['name'=>'updated','email'=>'update@email.com']);
+
+//         删除操作
+//        $res = DB::table('users')->where('id', '>', 4)->delete();
+
+//        查询
+//        $res = DB::table('users')->get(); //查询多条数据
+//        $res = DB::table('users')->first(); // 查询单条数据
+
+//        获取单个结果中的某个字段值
+//        $res = DB::table('users')->value('email');
+
+//        获取结果集中某个字段的所有值
+//        $res = DB::table('users')->lists('email');
+
+//        设置字段查询
+//        $res = DB::table('users')->select('name', 'email')->get();
+
+//        设置 where 条件
+//        $res = DB::table('users')->where('name', '=', 'gooin2')->get();
+
+//        orWhere 符合条件的都显示
+//        $res = DB::table('users')->where('id', '=', 3)->orWhere('name', '=', 'gooin3')->get();
+
+//        whereBetween 查询在范围内的数据
+//        $res = DB::table('users')->whereBetween('id', [2, 4])->get();
+
+//        whereIn 包含在指定数组内的
+//        $res = DB::table('users')->whereIn('id', [1, 3, 4])->get();
+
+//        排序(倒序)
+//        $res = DB::table('users')->orderBy('id', 'desc')->get();
+
+//        分页操作
+//        $res = DB::table('users')->skip(2)->take(3)->get();
+//
+//        链接表
+//        $res = DB::table('users')
+//            ->join('articles', 'users.id', '=', 'articles.id')
+//            ->get();
+
+        // 运算
+        //计算表中有多少条数据
+        $res = DB::table('users')->count();
+        //计算最大值
+//        $res = DB::table('articles')->max('user_id');
+
+//        SQL 语句记录
+
+        dd($res);
     }
 
 }

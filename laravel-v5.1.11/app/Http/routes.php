@@ -140,9 +140,12 @@ Route::get('/response', 'UserController@response');
 Route::get('/view', 'UserController@view');
 // blade路由
 Route::get('/blade', 'UserController@blade');
-// blade 使用 @include('')
+// blade 使用 @include('') 引入子视图
 Route::get('/page', 'UserController@page');
 Route::get('/cart', 'UserController@cart');
+// blade 模板继承
+Route::get('/layout', 'UserController@layout');
+Route::get('/extend', 'UserController@extend');
 
 
 

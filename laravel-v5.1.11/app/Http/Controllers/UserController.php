@@ -208,10 +208,20 @@ class UserController extends Controller
                 'title' => 'Page'
             ]);
     }
-
+    // blade 使用 @include 引入子元素
     public function cart()
     {
         return view('page.cart');
+    }
+    // blade 模板继承
+    public function layout()
+    {
+        return view('layout.index');
+    }
+
+    public function extend()
+    {
+        return view('layout.extend');
     }
 
 }

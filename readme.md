@@ -222,13 +222,29 @@ public function up()
             $table->string('password');
         });
     }
+    
+public function down()
+    {
+        // 删除表
+        Schema::drop('test');
+    }
 ```
 
 ## 运行迁移
-在命令行执行 `php artisan migrate`
+### 创建表
+在命令行执行 `php artisan migrate` 来
 ![php-migrate.png](https://ooo.0o0.ooo/2017/04/28/59021d37e94da.png)
+
 运行成功后查看数据库
+
 ![php-migrated.png](https://ooo.0o0.ooo/2017/04/28/59021d3ca2f80.png)
+
+### 更新表
+执行 `php artisan migrate:refresh`
+![php-migrate-refresh.png](https://ooo.0o0.ooo/2017/04/28/590289c50ea86.png)
+
+
+
 
 
 

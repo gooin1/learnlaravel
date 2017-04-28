@@ -36,6 +36,9 @@ class Test extends Migration
                 if (!Schema::hasColumn('test','weibo')) {
                     $table->string('weibo')->comment('微博');
                 }
+                if (!Schema::hasColumn('test','email')) {
+                    $table->string('email')->comment('邮箱');
+                }
                 /*
                  * 修改字段
                  * 在修改字段之前，请务必在你的 composer.json 中增加 doctrine/dbal 依赖。

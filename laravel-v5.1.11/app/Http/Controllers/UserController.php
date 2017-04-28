@@ -273,6 +273,21 @@ class UserController extends Controller
 //        $res = DB::connection('mysql1')->select('select * from students');
 //        var_dump($res);
 
+        $arr = [];
+        //循环
+        for ($i = 0; $i < 20; $i++) {
+            $tmp = [];
+            $tmp['username'] = str_random(6);
+            $tmp['password'] = str_random(10);
+            $tmp['nickname'] = 'Cool-' . str_random(6);
+            $tmp['weibo'] = '@' . str_random(6);
+            $tmp['email'] = rand(10000000, 999999999) . '@qq.com';
+            // 压入到数组中
+            $arr[] = $tmp;
+
+        }
+        var_dump($arr);
+
     }
 /*
  * 查询构造器

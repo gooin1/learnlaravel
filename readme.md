@@ -232,7 +232,8 @@ public function down()
 
 ## 运行迁移
 ### 创建表
-在命令行执行 `php artisan migrate` 来
+在命令行执行 `php artisan migrate` 
+
 ![php-migrate.png](https://ooo.0o0.ooo/2017/04/28/59021d37e94da.png)
 
 运行成功后查看数据库
@@ -241,7 +242,215 @@ public function down()
 
 ### 更新表
 执行 `php artisan migrate:refresh`
+
 ![php-migrate-refresh.png](https://ooo.0o0.ooo/2017/04/28/590289c50ea86.png)
+
+# 数据库填充
+Laravel 可以简单的使用 seed 类来给数据库填充测试数据。
+## 编写数据填充
+命令行执行 ` php artisan make:seeder testSeeder`
+
+![php-make-seeder.png](https://ooo.0o0.ooo/2017/04/28/5902ddf92da06.png)
+
+执行成功后的文件保存在 `database/seeds/` 下
+
+![php-seeder.png](https://ooo.0o0.ooo/2017/04/28/5902ddf80b00d.png)
+
+在 `testSeeder.php` 的 `run` 函数下填写填充的数据
+```php
+<?php
+
+use Illuminate\Database\Seeder;
+
+class testSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+        $arr = [];
+        //循环
+        for ($i = 0; $i < 20; $i++) {
+            $tmp = [];
+            $tmp['username'] = str_random(6);
+            $tmp['password'] = str_random(10);
+            $tmp['nickname'] = 'Cool-' . str_random(6);
+            $tmp['weibo'] = '@' . str_random(6);
+            $tmp['email'] = rand(10000000, 999999999) . '@qq.com';
+            // 压入到数组中
+            $arr[] = $tmp;
+
+        }
+            // 插入
+            DB::table('test')->insert($arr);
+
+    }
+}
+
+
+```
+
+## 运行数据填充
+命令行运行
+`php artisan db:seed --class=testSeeder`
+
+在数据库中查看结果
+
+![aphp-seeded.png](https://ooo.0o0.ooo/2017/04/28/5902e3b95c05d.png)
+
+# *从零开始创建一堆假数据
+### 创建注入文件
+在命令行执行 
+
+`php artisan make:migration post`
+
+![php artisan make:migration post](https://ooo.0o0.ooo/2017/04/28/5902ef35a21dd.png)
+
+### 书写数据库注入代码
+在 `database/migtations` 目录下找到 `201x_xx_xx_xxxxxx_post.php` 文件, 打开
+后写好注入代码:
+
+```php
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class Post extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('title');
+        $table->string('text');
+        $table->timestamps();
+    });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        //
+        Schema::drop('posts');
+    }
+}
+
+```
+
+### 运行迁移
+命令行执行
+
+`php artisan migrate`
+
+执行后在数据库查看结果
+
+![database](https://ooo.0o0.ooo/2017/04/28/5902ef369e5e7.png)
+
+### 编写数据填充
+命令行执行
+
+`php artisan make:seeder postSeeder`
+
+执行后在 `database/seeds` 目录下找到 `postSeeder.php`
+对照数据库表结构添加代码:
+
+```php
+<?php
+
+use Illuminate\Database\Seeder;
+
+class postSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+        $data = [];
+        // 循环
+        for ($i = 0; $i < 20; $i++){
+            $tmp = [];
+            $tmp['title'] = 'Title-' . str_random(6) .'-'. $i;
+            $tmp['text'] = 'Content-' . str_random(100) .'-'. $i;
+            $tmp['created_at'] = date('Y-m-d H:i:s');
+            $tmp['updated_at'] = date('Y-m-d H:i:s');
+
+            $data[] = $tmp;
+        }
+        // 插入
+        DB::table('posts')->insert($data);
+    }
+}
+
+```
+
+### 填充
+找到和 `postSeederphp` 同目录下的 `DatabaseSeeder.php`
+在 run 函数下添加我们的 seeder 类
+```php
+ public function run()
+    {
+        Model::unguard();
+
+        // $this->call(UserTableSeeder::class);
+        // 添加我们的 postSeeder 类
+         $this->call(postSeeder::class);
+
+        Model::reguard();
+    }
+```
+
+命令行执行
+
+`php artisan migrate:refresh --seed`
+
+![php artisan migrate:refresh --seed](https://ooo.0o0.ooo/2017/04/28/5902ef3841711.png)
+
+在数据库中查看
+
+![Seeded: postSeeder](https://ooo.0o0.ooo/2017/04/28/5902ef39e434c.png)
+
+大功告成! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

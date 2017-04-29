@@ -302,7 +302,8 @@ class testSeeder extends Seeder
 
 ![aphp-seeded.png](https://ooo.0o0.ooo/2017/04/28/5902e3b95c05d.png)
 
-# *从零开始创建一堆假数据
+# *Laravel从零开始创建数据库示例数据
+在命令行从进入到laravel文件目录
 ### 创建注入文件
 在命令行执行 
 
@@ -428,6 +429,12 @@ class postSeeder extends Seeder
 ![Seeded: postSeeder](https://ooo.0o0.ooo/2017/04/28/5902ef39e434c.png)
 
 大功告成! 
+
+# 模型
+
+创建模型
+命令行执行 `php artisan make:model Models/Goods`
+
 
 
 

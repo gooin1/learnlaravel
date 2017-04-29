@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Goods;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -364,6 +365,58 @@ class UserController extends Controller
 //        SQL 语句记录
 
         dd($res);
+    }
+
+    public function model()
+    {
+        /*
+         * 数据添加
+         */
+        // 创建模型对象
+//        $goods = new \App\Models\Goods;
+////        添加
+//        $goods->title = "Google 玩偶";
+//        $goods->text = "超级好看可爱的";
+//        $goods->created_at = date('Y-m-d H:i:s');
+//        $goods->updated_at = date('Y-m-d H:i:s');
+//
+//        $goods->save();
+
+        /*
+         * 读取
+         */
+//        $info = \App\Models\Goods::find(5);
+//        // 读取
+//        echo $info->title;
+//        dd($info);
+
+        /*
+         * 删除
+         */
+//        $info = \App\Models\Goods::find(5);
+//        // 删除 id 为5的字段
+//        $info->delete();
+
+        /*
+         * 更新
+         */
+//        $info = \App\Models\Goods::find(4);
+//        $info->title = 'Google 大法好';
+//        $info->text = '我爱喝橙汁!';
+//        $info->save();
+
+        /*
+         * 读取所有数据
+         */
+        // 之前的操作
+        // DB:table('goods')->get();
+
+        //
+//        $data = Goods::get();
+        $data = Goods::where('id','>','2')->get();
+        dd($data);
+
+
     }
 
 }

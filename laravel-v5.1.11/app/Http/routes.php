@@ -159,5 +159,8 @@ Route::get('/db', 'UserController@db');
 // 查询构造器
 Route::get('/builder', 'UserController@builder');
 
+// 模型的基本操作
+Route::get('/model', 'UserController@model');
+
 
 
